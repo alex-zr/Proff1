@@ -4,7 +4,7 @@ public class ThreadEx implements Runnable {
     private int counter;
 
     @Override
-    public synchronized void run() {
+    public void run() {
         for (int i = 0; i < 10; i++) {
             System.out.println(Thread.currentThread().getName() + ", " + counter++);
             try {
