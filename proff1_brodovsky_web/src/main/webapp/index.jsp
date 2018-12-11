@@ -1,12 +1,22 @@
+<%@ page import="java.util.Date" %>
+<%@ page import="java.time.LocalDate" %>
+<%@ page import="java.time.LocalTime" %>
 <html>
 <body>
     <h2>Hello World!</h2>
-    <o1>
-        <li>Lexus</li>
-        <li>BMW</li>
-        <li>Infinity</li>
-    </o1>
+
+    <form action="/serv" method="get">
+        <input type="text" name="login" value="man"><br/>
+        <input type="password" name="password" value="man"><br/>
+        <input type="submit" value="Login">
+    </form>
 
     <a href="/serv">Go to first servlet</a>
+
+    <%
+        LocalTime localDate = LocalTime.now();
+    %>
+
+    <%= localDate %>
 </body>
 </html>

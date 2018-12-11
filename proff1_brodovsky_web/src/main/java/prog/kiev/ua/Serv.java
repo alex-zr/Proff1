@@ -10,6 +10,15 @@ import java.io.IOException;
 public class Serv extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.getWriter().println("<h1> Hello from servv </h1>");
+        String login = req.getParameter("Login");
+        String password = req.getParameter("Password");
+        String msg = "man";
+
+        if ( login != null && login.equals(password) ) {
+            msg = "week credentials";
+        }
+
+        resp.getWriter().println(String.format("<h1> Hello %s from servv </h1>", msg));
+
     }
 }
