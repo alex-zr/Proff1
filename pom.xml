@@ -12,6 +12,7 @@
     <modules>
         <module>proff1_examples</module>
         <module>proff1_examples_web</module>
+        <module>alina_sergeeva_web</module>
     </modules>
 
     <properties>
