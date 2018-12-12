@@ -10,8 +10,8 @@ import java.io.IOException;
 public class Serv extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String login = req.getParameter("Login");
-        String password = req.getParameter("Password");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         String msg = "man";
 
         if ( login != null && login.equals(password) ) {

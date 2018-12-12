@@ -6,12 +6,10 @@
     <h2>Hello World!</h2>
 
     <form action="/serv" method="get">
-        <input type="text" name="login" value="man"><br/>
-        <input type="password" name="password" value="man"><br/>
+        Login: <input type="text" name="login" value="man"><br/>
+        Password: <input type="password" name="password" value="man"><br/>
         <input type="submit" value="Login">
     </form>
-
-    <a href="/serv">Go to first servlet</a>
 
     <%
         LocalTime localDate = LocalTime.now();
