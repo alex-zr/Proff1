@@ -11,6 +11,8 @@
 
     <modules>
         <module>proff1_examples</module>
+        <module>proff1_brodovsky_web</module>
+        <module>proff1_examples_web</module>
     </modules>
 
     <properties>
