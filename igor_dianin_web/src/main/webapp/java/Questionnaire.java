@@ -52,7 +52,7 @@ public class Questionnaire extends HttpServlet {
                 moreTwo++;
             }
 
-          /*  String msg = "Like java: - " + javaAnswer + System.lineSeparator()+
+          String msg = "Like java: - " + javaAnswer + System.lineSeparator()+
                          "Like other languages - " + otherLanguageAnswer +System.lineSeparator()+
                          "Like javascript - " + likeJavascript +System.lineSeparator()+
                          "Dont like javascript - " + notLikeJavascript +System.lineSeparator()+
@@ -62,11 +62,9 @@ public class Questionnaire extends HttpServlet {
 
             response.setContentType("text/html");
             PrintWriter printWriter = response.getWriter();
-            printWriter.println(String.format(TAMPLATE,msg));*/
+            printWriter.println(String.format(TAMPLATE,msg));
 
-           // response.sendRedirect("index.jsp");
-           request.setAttribute("javaAnswer1", javaAnswer);
-           request.getRequestDispatcher("/index.jsp").forward(request, response);
+
 
     }
 }
