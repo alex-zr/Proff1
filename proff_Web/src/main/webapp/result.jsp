@@ -5,6 +5,6 @@
 </head>
 <body>
     <h1>result</h1>
-    ${}
+    ${result}
 </body>
 </html>
