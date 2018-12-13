@@ -7,6 +7,6 @@
         <li>Infinity</li>
     </ol>
 
-    <a href="/serv">Goto first servlet</a>
+    <a href="/proff1_examples_web_war_exploded/serv">Goto first servlet</a>
 </body>
 </html>
