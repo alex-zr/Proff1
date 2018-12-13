@@ -6,8 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+
 @WebServlet(name = "serv", urlPatterns = "/serv")
 public class Serv extends HttpServlet {
+
     @Override
     public void doGet(HttpServletRequest req,
                       HttpServletResponse resp) throws IOException {
@@ -19,4 +21,5 @@ public class Serv extends HttpServlet {
         }
         resp.getWriter().println(String.format("<h1> Hello %s from Serv </h1>", msg));
     }
+
 }
