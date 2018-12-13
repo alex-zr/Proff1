@@ -16,6 +16,6 @@
         <input type="text" name="password" value="gates"/><br/>
         <input type="submit" value="Login"/>
     </form>
-    <a href="/proff1_examples_web_war_exploded/serv">Goto first servlet</a>
+    <a href="/proff1_examples_web_war_exploded/registration.jsp">Registration</a>
 </body>
 </html>
