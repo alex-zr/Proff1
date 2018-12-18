@@ -4,14 +4,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.Date;
+
 
 @SuppressWarnings("all")
 @WebServlet(name = "Questionnaire", value = "/questionnaire")
 public class Questionnaire extends HttpServlet {
-    static final String TAMPLATE = "<html>" +
-            "<head><titlt></title></head>" +
-            "<body><h1>%s<h1></body></html>";
+
+    public PeopleList peopleList = PeopleList.getInstance();
     int javaAnswer=0;
     int otherLanguageAnswer=0;
     int likeJavascript=0;
@@ -24,13 +24,33 @@ public class Questionnaire extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+            //parameters of people that voted
+            String name = request.getParameter("name");
+            String lastName = request.getParameter("lastName");
+            String age = request.getParameter("age");
+            String married = request.getParameter("married");
+            //voting parameters
             String language = request.getParameter("language");
             String javascript = request.getParameter("javascript");
             String quantityLanguagesS = request.getParameter("quantityLanguages");
 
             int quantityLanguages = Integer.parseInt(quantityLanguagesS);
+            int ageInt = Integer.parseInt(age);
+            boolean marriedBoolean = Boolean.parseBoolean(married);
+
+            int votes = peopleList.getPeopleList().size()+1;
+            int votesOnlyMarried = (int) peopleList.getPeopleList().stream()
+                    .filter(people -> people.isMarried()).count();
+
+            int votesOnlyNotMarried = peopleList.getPeopleList().size()+1 - votesOnlyMarried;
+
+            int peopleAgeIsMore30 = (int) peopleList.getPeopleList().stream()
+                    .filter(people -> people.getAge()>30).count();
+
+            /*int averageAgeOfVoters = peopleList.getPeopleList().stream()
+                    .mapToInt( ->  )
+                    .average();*/
+
 
             if ("java".equalsIgnoreCase(language)){
                 javaAnswer++;
@@ -52,17 +72,28 @@ public class Questionnaire extends HttpServlet {
                 moreTwo++;
             }
 
-          String msg = "Like java: - " + javaAnswer + System.lineSeparator()+
-                         "Like other languages - " + otherLanguageAnswer +System.lineSeparator()+
-                         "Like javascript - " + likeJavascript +System.lineSeparator()+
-                         "Dont like javascript - " + notLikeJavascript +System.lineSeparator()+
-                         "not decide about javascript -  " + notdecide +System.lineSeparator()+
-                         "Know languages less 2 - " + lessTwo +System.lineSeparator()+
-                         "Know languages more 2 - " + moreTwo;
 
-            response.setContentType("text/html");
-            PrintWriter printWriter = response.getWriter();
-            printWriter.println(String.format(TAMPLATE,msg));
+
+           peopleList.addPeople(new People(name,lastName,ageInt,marriedBoolean));
+           request.setAttribute("votes", votes);
+           request.setAttribute("votesOnlyNotMarried", votesOnlyNotMarried);
+           request.setAttribute("peopleAgeIsMore30", peopleAgeIsMore30);
+           //request.setAttribute("averageAgeOfVoters", averageAgeOfVoters);
+
+           request.setAttribute("name", name);
+           request.setAttribute("lastName", lastName);
+           request.setAttribute("age", age);
+           request.setAttribute("marriedBoolean", marriedBoolean);
+
+           request.setAttribute("javaAnswer",javaAnswer);
+           request.setAttribute("otherLanguageAnswer",otherLanguageAnswer);
+           request.setAttribute("likeJavascript",likeJavascript);
+           request.setAttribute("notLikeJavascript",notLikeJavascript);
+           request.setAttribute("notdecide",notdecide);
+           request.setAttribute("lessTwo",lessTwo);
+           request.setAttribute("moreTwo",moreTwo);
+           request.getRequestDispatcher("/index.jsp").forward(request,response);
+
 
 
 
