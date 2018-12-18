@@ -10,13 +10,15 @@
         <input type="password" name="password" value="man"/> <br/>
         <input type="submit" value="Login">
     </form>
+    <% if (request.getAttribute("errors") != null) { %>
+        ${errors}
+    <% } %>
 
-    <a href="/serv">Goto first servlet</a>
-
-    <%
-        LocalTime localDate = LocalTime.now();
-    %>
-
-    <%= localDate %>
+    <form action="/proff1_examples_web_war_exploded/auth">
+        <input type="text" name="login" value="bill"/><br/>
+        <input type="text" name="password" value="gates"/><br/>
+        <input type="submit" value="Login"/>
+    </form>
+    <a href="/proff1_examples_web_war_exploded/registration.jsp">Registration</a>
 </body>
 </html>

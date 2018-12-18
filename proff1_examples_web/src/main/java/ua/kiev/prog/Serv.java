@@ -1,11 +1,12 @@
 package ua.kiev.prog;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-
+import java.util.Arrays;
 
 @WebServlet(name = "serv", urlPatterns = "/serv")
 public class Serv extends HttpServlet {
@@ -20,6 +21,7 @@ public class Serv extends HttpServlet {
             msg = "Week credentials";
         }
         resp.getWriter().println(String.format("<h1> Hello %s from Serv </h1>", msg));
+
     }
 
 }
