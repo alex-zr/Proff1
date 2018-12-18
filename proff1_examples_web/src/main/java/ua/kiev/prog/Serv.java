@@ -10,12 +10,18 @@ import java.util.Arrays;
 
 @WebServlet(name = "serv", urlPatterns = "/serv")
 public class Serv extends HttpServlet {
+
     @Override
     public void doGet(HttpServletRequest req,
-                      HttpServletResponse resp) throws IOException, ServletException {
+                      HttpServletResponse resp) throws IOException {
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        String msg = "man";
+        if (login != null && login.equals(password)) {
+            msg = "Week credentials";
+        }
+        resp.getWriter().println(String.format("<h1> Hello %s from Serv </h1>", msg));
 
-        req.setAttribute("list", Arrays.asList("Lexus", "BMW", "Infinity"));
-        req.getRequestDispatcher("/result.jsp").forward(req, resp);
-//        resp.getWriter().println("<h1> Hello from Serv </h1>");
     }
+
 }
