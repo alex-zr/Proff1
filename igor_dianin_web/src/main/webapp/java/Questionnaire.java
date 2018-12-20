@@ -47,9 +47,10 @@ public class Questionnaire extends HttpServlet {
             int peopleAgeIsMore30 = (int) peopleList.getPeopleList().stream()
                     .filter(people -> people.getAge()>30).count();
 
-            /*int averageAgeOfVoters = peopleList.getPeopleList().stream()
-                    .mapToInt( ->  )
-                    .average();*/
+            int averageAgeOfVoters = (int) peopleList.getPeopleList().stream()
+                    .mapToInt(People::getAge)
+                    .average()
+                    .getAsDouble();
 
 
             if ("java".equalsIgnoreCase(language)){
