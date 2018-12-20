@@ -17,7 +17,7 @@ import java.util.Scanner;
 public class Main {
     static final String DB_CONNECTION = "jdbc:mysql://localhost:3306/mydb";
     static final String DB_USER = "root";
-    static final String DB_PASSWORD = "root";
+    static final String DB_PASSWORD = "";
 
     static Connection conn;
 
@@ -162,8 +162,9 @@ public class Main {
                 // can be used to get information about the types and properties of the columns in a ResultSet object
                 ResultSetMetaData md = rs.getMetaData();
 
-                for (int i = 1; i <= md.getColumnCount(); i++)
+                for (int i = 1; i <= md.getColumnCount(); i++) {
                     System.out.print(md.getColumnName(i) + "\t\t");
+                }
                 System.out.println();
 
                 while (rs.next()) {
