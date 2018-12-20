@@ -8,14 +8,14 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class Example {
-    static final String DB_CONNECTION = "jdbc:mysql://localhost:3306/mydb";
-    static final String DB_USER = "root";
-    static final String DB_PASSWORD = "root";
+	static final String DB_CONNECTION = "jdbc:mysql://localhost:3306/JavaPro";
+	static final String DB_USER = "root";
+	static final String DB_PASSWORD = "";
 
-    static Connection conn;
+	static Connection conn;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
 
         try (Connection conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD)) {
             Statement statement = conn.createStatement();
