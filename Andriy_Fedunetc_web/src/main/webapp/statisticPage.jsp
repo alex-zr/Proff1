@@ -81,7 +81,7 @@
 <body>
 
 <div id="color" style="width: 500px; height: 400px;"></div>
-
+<br>
 <div id="animal" style="width: 500px; height: 400px;"></div>
 
 </body>
