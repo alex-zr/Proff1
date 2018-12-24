@@ -16,7 +16,9 @@
         <module>proff1_examples_web</module>
         <module>web-pro</module>
         <module>alina_sergeeva_web</module>
+        <module>igor_dianin_web</module>
         <module>proff_Web</module>
+
     </modules>
 
     <properties>
