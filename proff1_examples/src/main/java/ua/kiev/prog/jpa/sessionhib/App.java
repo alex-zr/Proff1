@@ -25,7 +25,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         try {
             // create connection
-            emf = Persistence.createEntityManagerFactory("JPATest");
+            emf = Persistence.createEntityManagerFactory("JPAExample1");
             em = emf.createEntityManager();
             SimpleClient simpleClient = em.find(SimpleClient.class, 1L);
             System.out.println(simpleClient);

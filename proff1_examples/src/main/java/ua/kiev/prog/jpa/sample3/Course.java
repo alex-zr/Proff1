@@ -2,6 +2,7 @@ package ua.kiev.prog.jpa.sample3;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//@Entity
+@Entity
 @Table(name = "Courses")
 @NamedQueries({
         @NamedQuery(name = "Course.findAll", query = "SELECT c FROM Course c"),

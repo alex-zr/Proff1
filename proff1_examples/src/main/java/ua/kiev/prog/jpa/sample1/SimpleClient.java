@@ -22,23 +22,12 @@ public class SimpleClient {
     private String name;
     private Integer age;
 
-    @ManyToOne
-    private Group group;
-
     public SimpleClient() {
     }
 
     public SimpleClient(String name, int age) {
         this.name = name;
         this.age = age;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
     }
 
     public long getId() {
