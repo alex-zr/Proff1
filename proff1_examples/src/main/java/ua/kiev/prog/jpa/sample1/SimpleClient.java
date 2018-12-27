@@ -1,7 +1,5 @@
 package ua.kiev.prog.jpa.sample1;
 
-import ua.kiev.prog.jpa.sample2.Group;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
