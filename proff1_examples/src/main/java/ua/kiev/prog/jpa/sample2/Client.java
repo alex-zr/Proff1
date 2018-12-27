@@ -1,6 +1,7 @@
 package ua.kiev.prog.jpa.sample2;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-//@Entity
+@Entity
 @Table(name = "Clients")
 public class Client {
     @Id
