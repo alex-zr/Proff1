@@ -10,7 +10,15 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>proff1_examples_web</module>
         <module>proff1_examples</module>
+        <module>proff1_brodovsky_web</module>
+        <module>proff1_examples_web</module>
+        <module>web-pro</module>
+        <module>alina_sergeeva_web</module>
+        <module>igor_dianin_web</module>
+        <module>proff_Web</module>
+
     </modules>
 
     <properties>
@@ -111,6 +119,11 @@
                 <version>5.1.2.RELEASE</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.8.5</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
