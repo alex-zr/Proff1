@@ -1,6 +1,7 @@
 package ua.kiev.prog.jpa.sample3;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-//@Entity
+@Entity
 @Table(name = "Clients")
 @NamedQuery(name = "Client.findAll", query = "SELECT c FROM Client c")
 public class Client {
