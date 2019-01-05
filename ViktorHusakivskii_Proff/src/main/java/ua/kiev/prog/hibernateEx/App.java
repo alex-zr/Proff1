@@ -3,8 +3,6 @@ package ua.kiev.prog.hibernateEx;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
-import java.util.Date;
 import java.util.Scanner;
 
 public class App {
@@ -56,11 +54,11 @@ public class App {
 			System.out.println("Were laptop used?");
 			String isused = sc.nextLine();
 			System.out.println("Enter laptop manufactured date");
-			Date date = Date.parse(sc.next());
+			//Date date = Date.parse(sc.next());
 			em.getTransaction().begin();
 			try {
-				laptop c = new laptop(model,brand,price,isused,date);
-				em.persist(c);
+			//	laptop c = new laptop(model,brand,price,isused,date);
+			//	em.persist(c);
 				em.getTransaction().commit();
 			} catch (Exception ex) {
 				em.getTransaction().rollback();
