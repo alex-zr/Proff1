@@ -7,7 +7,7 @@
         <class>ua.kiev.prog.hibernateEx.laptop</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/localHostTest"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/localHostTestq"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value=""/>
             <property name="hibernate.show_sql" value="true"/>
@@ -17,12 +17,12 @@
         </properties>
     </persistence-unit>
 
-    <persistence-unit name="MenuApp">
+    <persistence-unit name="JPAMenuApp">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>ua.kiev.prog.hibernate_HomeWork.menu</class>
+        <class>ua.kiev.prog.hibernate_HomeWork.Menu</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/localHostTest"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/restaurant_menu"/>
             <property name="javax.persistence.jdbc.user" value="root"/>
             <property name="javax.persistence.jdbc.password" value=""/>
             <property name="hibernate.show_sql" value="true"/>
