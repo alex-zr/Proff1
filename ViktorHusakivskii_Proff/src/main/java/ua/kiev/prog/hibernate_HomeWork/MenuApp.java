@@ -10,14 +10,14 @@ import java.util.Scanner;
 public class MenuApp {
 	static EntityManagerFactory emf;
 	static EntityManager em;
+	static Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
 		emf = Persistence.createEntityManagerFactory("JPAMenuApp");
 		em = emf.createEntityManager();
-		addDish("egg",12,300,0);
+		/*addDish("egg",12,300,0);
 		addDish("roar beef",200,500,0);
-		addDish("bread",10,1000,25);
+		addDish("bread",10,1000,25);*/
 		try {
 			while (true) {
 				viewMenu();
@@ -79,9 +79,9 @@ public class MenuApp {
 
 	private static void firstQuery(){
 		System.out.println("input min price: ");
-		int a = 0;
+		int a = sc.nextInt() ;
 		System.out.println("input max price: ");
-		int b = 0;
+		int b = sc.nextInt();
 		Query query = em.createQuery("SELECT Menu.name FROM Menu where Menu.price<:b and Menu.price>:a",Menu.class);
 		query.setParameter("a", a);
 		query.setParameter("b", b);

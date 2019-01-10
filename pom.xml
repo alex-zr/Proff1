@@ -20,8 +20,22 @@
         <module>proff_Web</module>
         <module>ViktorHusakivskii_Proff</module>
         <module>proff1_examples_spring</module>
+        <module>Viktor_Husakivskyi_spring</module>
 
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>4.1.2.RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <junit.version>4.12</junit.version>
