@@ -10,22 +10,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-/*
-Создать ноутбук (id, model, brand, price, isUsed, date)
-    java time
-    java time example
-    java time example hibernate jpa
-сохранить 5 ноутбуков
-Вычитать все ноутбуки и вывести на экран
-Задание сделать в своём модуле
-И запушить в мастер
-
-1. Создание сущности
-2. Пишем класс задания
-3. Создать персистент юнит
-4. Выложить в гит
-
- */
 public class App {
     static EntityManagerFactory emf;
     static EntityManager em;
@@ -34,7 +18,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         try {
             // create connection
-            emf = Persistence.createEntityManagerFactory("JPAExample1");
+            emf = Persistence.createEntityManagerFactory("JPATest");
             em = emf.createEntityManager();
             try {
                 while (true) {
@@ -122,12 +106,12 @@ public class App {
         String sAge = sc.nextLine();
         int age = Integer.parseInt(sAge);
 
-        SimpleClient client = null;
+        SimpleClient c = null;
         try {
             Query query = em.createQuery("SELECT c FROM SimpleClient c " +
                     "WHERE c.name = :name", SimpleClient.class);
             query.setParameter("name", name);
-            client = (SimpleClient) query.getSingleResult();
+            c = (SimpleClient) query.getSingleResult();
         } catch (NoResultException ex) {
             System.out.println("Client not found!");
             return;
@@ -138,7 +122,7 @@ public class App {
 
         em.getTransaction().begin();
         try {
-            client.setAge(age);
+            c.setAge(age);
             em.getTransaction().commit();
         } catch (Exception ex) {
             em.getTransaction().rollback();
@@ -148,14 +132,13 @@ public class App {
     private static void insertRandomClients(Scanner sc) {
         System.out.print("Enter clients count: ");
         String sCount = sc.nextLine();
-        int clientCount = Integer.parseInt(sCount);
+        int count = Integer.parseInt(sCount);
 
         em.getTransaction().begin();
-        SimpleClient client;
         try {
-            for (int i = 0; i < clientCount; i++) {
-                client = new SimpleClient(randomName(), RND.nextInt(100));
-                em.persist(client);
+            for (int i = 0; i < count; i++) {
+                SimpleClient c = new SimpleClient(randomName(), RND.nextInt(100));
+                em.persist(c);
             }
             em.getTransaction().commit();
         } catch (Exception ex) {
@@ -164,7 +147,7 @@ public class App {
     }
 
     private static void viewClients() {
-        Query query = em.createQuery("FROM SimpleClient c", SimpleClient.class);
+        Query query = em.createQuery("SELECT c FROM SimpleClient c", SimpleClient.class);
         List<SimpleClient> list = (List<SimpleClient>) query.getResultList();
 
         for (SimpleClient c : list)

@@ -18,6 +18,8 @@
         <module>alina_sergeeva_web</module>
         <module>igor_dianin_web</module>
         <module>proff_Web</module>
+        <module>ViktorHusakivskii_Proff</module>
+        <module>proff1_examples_spring</module>
 
     </modules>
 
@@ -124,6 +126,13 @@
                 <artifactId>gson</artifactId>
                 <version>2.8.5</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.4</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
