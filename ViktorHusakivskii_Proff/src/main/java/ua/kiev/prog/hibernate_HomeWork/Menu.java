@@ -1,10 +1,13 @@
 package ua.kiev.prog.hibernate_HomeWork;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name = "menu")
-public class menu {
+@NoArgsConstructor
+@Table(name = "Menu")
+public class Menu {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "dish_id")
@@ -22,7 +25,7 @@ public class menu {
 	@Column(name = "dish_discont")
 	int discont;
 
-	public menu(String name, int price, int weight, int discont){
+	public Menu(String name, int price, int weight, int discont){
 		this.name = name;
 		this.price = price;
 		this.weight = weight;
