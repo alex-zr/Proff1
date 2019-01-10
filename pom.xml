@@ -13,14 +13,14 @@
         <module>proff1_examples_web</module>
         <module>proff1_examples</module>
         <module>proff1_brodovsky_web</module>
-        <module>brodovsky_chat</module>
         <module>proff1_examples_web</module>
         <module>web-pro</module>
         <module>alina_sergeeva_web</module>
+        <module>igor_dianin_web</module>
         <module>proff_Web</module>
-        <module>brodovsky_DB</module>
-        <module>brodovsky_notebook_hibernate</module>
-        <module>brodovsky_noweb</module>
+        <module>ViktorHusakivskii_Proff</module>
+        <module>proff1_examples_spring</module>
+
     </modules>
 
     <properties>
@@ -126,6 +126,13 @@
                 <artifactId>gson</artifactId>
                 <version>2.8.5</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.4</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
