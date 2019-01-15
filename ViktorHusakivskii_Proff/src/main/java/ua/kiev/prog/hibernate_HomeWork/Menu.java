@@ -1,11 +1,13 @@
 package ua.kiev.prog.hibernate_HomeWork;
 
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
+@Data
 @Table(name = "Menu")
 public class Menu {
 	@Id
@@ -31,4 +33,6 @@ public class Menu {
 		this.weight = weight;
 		this.discont = discont;
 	}
+
+
 }
