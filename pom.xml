@@ -20,7 +20,11 @@
         <module>proff_Web</module>
         <module>ViktorHusakivskii_Proff</module>
         <module>proff1_examples_spring</module>
+<<<<<<< HEAD
         <module>Viktor_Husakivskyi_spring</module>
+=======
+        <module>Andriy_Fedunetc_spring</module>
+>>>>>>> 4c7acc3433997a48b2f620549eb8a137ab14008b
 
     </modules>
     <dependencies>
