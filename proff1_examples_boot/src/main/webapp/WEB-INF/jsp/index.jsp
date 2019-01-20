@@ -74,12 +74,12 @@
                 <ul class="pagination">
                     <c:if test="${allPages ne null}">
                         <c:forEach var="i" begin="1" end="${allPages}">
-                            <li><a href="/?page=<c:out value=""/><c:out value=" ${i}"/></a></li>
+                            <li><a href="/?page=${i}"/></li>
                         </c:forEach>
                     </c:if>
                     <c:if test="${byGroupPages ne null}">
                         <c:forEach var="i" begin="1" end="${byGroupPages}">
-                            <li><a href="/group/${groupId}?page=<c:out value="${i - 1}"/>"><c:out value="${i}"/></a></li>
+                           <li><a href="/group/${groupId}?page=<c:out value="${i - 1}"/>"><c:out value="${i}"/></a></li>
                         </c:forEach>
                     </c:if>
                 </ul>
