@@ -18,6 +18,7 @@
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul id="groupList" class="nav navbar-nav">
                             <li><button type="button" id="add_contact" class="btn btn-default navbar-btn">Add Contact</button></li>
+                            <li><button type="button" id="change_contact" class="btn btn-default navbar-btn">Change Contact</button></li>
                             <li><button type="button" id="add_group" class="btn btn-default navbar-btn">Add Group</button></li>
                             <li><button type="button" id="delete_contact" class="btn btn-default navbar-btn">Delete Contact</button></li>
                             <li class="dropdown">
@@ -74,12 +75,12 @@
                 <ul class="pagination">
                     <c:if test="${allPages ne null}">
                         <c:forEach var="i" begin="1" end="${allPages}">
-                            <li><a href="/?page=${i}"/></li>
+                            <li><a href="/?page=<c:out value=""/><c:out value=" ${i}"/></a></li>
                         </c:forEach>
                     </c:if>
                     <c:if test="${byGroupPages ne null}">
                         <c:forEach var="i" begin="1" end="${byGroupPages}">
-                           <li><a href="/group/${groupId}?page=<c:out value="${i - 1}"/>"><c:out value="${i}"/></a></li>
+                            <li><a href="/group/${groupId}?page=<c:out value="${i - 1}"/>"><c:out value="${i}"/></a></li>
                         </c:forEach>
                     </c:if>
                 </ul>
@@ -93,9 +94,22 @@
                 window.location.href='/contact_add_page';
             });
 
+
+            $('#change_contact').click(function () {
+                var data = { 'toDelete[]' : []};
+                $(":checked").each(function(){
+                    data['toDelete[]'].push($(this).val());
+                });
+                $.post("/contact_change_page", data, function(data, status) {
+                   window.location.href = '/contact_change_page';
+                });
+            });
+
+
             $('#add_group').click(function(){
                 window.location.href='/group_add_page';
             });
+
 
             $('#delete_contact').click(function(){
                 var data = { 'toDelete[]' : []};

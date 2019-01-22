@@ -20,11 +20,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-//@Configuration
-//@PropertySource("classpath:config.properties")
-//@EnableTransactionManagement
-//@EnableWebMvc
-public class AppConfig /*extends WebMvcConfigurerAdapter*/ {
+@Configuration
+@PropertySource("classpath:config.properties")
+@EnableTransactionManagement
+@EnableWebMvc
+public class AppConfig extends WebMvcConfigurerAdapter {
     @Value("${hibernate.dialect}")
     private String sqlDialect;
 
@@ -68,7 +68,7 @@ public class AppConfig /*extends WebMvcConfigurerAdapter*/ {
         return resolver;
     }
 
-    //@Override
+    @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry
                 .addResourceHandler("/static/**")
