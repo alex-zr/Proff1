@@ -1,3 +1,4 @@
+/*
 package jdbc;
 
 import java.sql.Connection;
@@ -44,28 +45,28 @@ public class customer {
                         addProduct();
                         break;
                     case "2" :
-                        addClient();
+
                         break;
                     case "3" :
-                        addOrder();
+
                         break;
                     case "4" :
-                        deleteProduct();
+
                         break;
                     case "5" :
-                        deleteClient();
+
                         break;
                     case "6" :
-                        deleteOrder();
+
                         break;
                     case "7" :
-                        edtProduct();
+
                         break;
                     case "8" :
-                        editProduct();
+
                         break;
                     case "9" :
-                        editProduct();
+
                         break;
                     case "10" :
                         addProduct();
@@ -97,3 +98,4 @@ public class customer {
 
 
     }
+*/
