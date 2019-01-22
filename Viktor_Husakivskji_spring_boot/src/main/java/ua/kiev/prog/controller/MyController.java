@@ -41,7 +41,7 @@ public class MyController {
         model.addAttribute("contacts", contacts);
         model.addAttribute("allPages", getPageCount());
 
-        return "index";
+        return "contactPage";
     }
 
     @RequestMapping("/contact_add_page")
