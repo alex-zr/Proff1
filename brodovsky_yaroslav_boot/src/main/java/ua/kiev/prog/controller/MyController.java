@@ -7,7 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import ua.kiev.prog.domain.Contact;
 import ua.kiev.prog.domain.Group;
 import ua.kiev.prog.service.ContactService;
@@ -22,16 +25,8 @@ public class MyController {
     @Autowired
     private ContactService contactService;
 
-    @RequestMapping("/")
-    public String index(){
-
-
-        return "index";
-    }
-
-
-    @RequestMapping("/contactPage")
-    public String contactPage(Model model, @RequestParam(required = false, defaultValue = "0") Integer page) {
+    @RequestMapping("/index")
+    public String index(Model model, @RequestParam(required = false, defaultValue = "0") Integer page) {
         if (page < 0) page = 0;
 
         List<Contact> contacts = contactService
@@ -41,7 +36,7 @@ public class MyController {
         model.addAttribute("contacts", contacts);
         model.addAttribute("allPages", getPageCount());
 
-        return "contactPage";
+        return "index";
     }
 
     @RequestMapping("/contact_add_page")
@@ -50,36 +45,21 @@ public class MyController {
         return "contact_add_page";
     }
 
-/****/
-    @RequestMapping(value="/contact_change_page", method = {RequestMethod.GET, RequestMethod.POST})
-    public String change(@RequestParam(value = "toDelete[]", required = false) long[] toChange, Model model) {
-        if (toChange!=null && toChange.length<2 && toChange.length>0) {
-            Contact contact = contactService.findContactById(toChange[0]);
-            model.addAttribute("id",contact.getId());
+    @RequestMapping(value = "/contact_edit_page", method = RequestMethod.POST)
+    public String contactEditPage(Model model,
+                                  @RequestParam(value = "toDelete[]", required = false) long[] contactId) {
+        if (contactId != null) {
+            Contact contact = contactService.findContact(contactId[0]);
+
             model.addAttribute("name", contact.getName());
             model.addAttribute("surname", contact.getSurname());
-            model.addAttribute("email", contact.getEmail());
             model.addAttribute("phone", contact.getPhone());
-
-        return "contact_change_page";
+            model.addAttribute("email", contact.getEmail());
+            model.addAttribute("group", contact.getGroup());
         }
-        return "redirect:/";
-    }
 
-    @RequestMapping("/contact/change")
-    public String change(@RequestParam String name,
-                              @RequestParam String surname,
-                              @RequestParam String phone,
-                              @RequestParam String email,
-                              @RequestParam long id){
-        Contact contact = contactService.findContactById(id);
-        contact.setEmail(email);
-        contact.setName(name);
-        contact.setSurname(surname);
-        contact.setPhone(phone);
-        return "redirect:/";
+        return "contact_edit_page";
     }
-/****/
 
     @RequestMapping("/group_add_page")
     public String groupAddPage() {
@@ -118,9 +98,9 @@ public class MyController {
 
     @RequestMapping(value = "/contact/delete", method = RequestMethod.POST)
     public ResponseEntity<Void> delete(@RequestParam(value = "toDelete[]", required = false) long[] toDelete) {
-        if (toDelete != null && toDelete.length > 0) {
+        if (toDelete != null && toDelete.length > 0)
             contactService.deleteContacts(toDelete);
-        }
+
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -137,6 +117,25 @@ public class MyController {
 
         Contact contact = new Contact(group, name, surname, phone, email);
         contactService.addContact(contact);
+
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/contact/edit", method = RequestMethod.POST)
+    public String contactEdit(@RequestParam String name,
+                              @RequestParam String surname,
+                              @RequestParam String phone,
+                              @RequestParam String email,
+                              @RequestParam String group,
+                              @RequestParam(value = "data") long contactId) {
+        Contact contact = contactService.findContact(contactId);
+        Group contactGroup = contactService.findGroup(group);
+
+        contact.setName(name);
+        contact.setEmail(email);
+        contact.setSurname(surname);
+        contact.setPhone(phone);
+        contact.setGroup(contactGroup);
 
         return "redirect:/";
     }
