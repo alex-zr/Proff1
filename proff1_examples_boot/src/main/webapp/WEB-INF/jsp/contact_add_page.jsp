@@ -10,7 +10,7 @@
         <div class="container">
             <form role="form" class="form-horizontal" action="/contact/add" method="post">
                         <h3>New contact</h3>
-                        <select class="selectpicker form-control form-group" name="group">
+                        <select class="form-control form-group" name="group">
                             <option value="-1">Default</option>
                             <c:forEach items="${groups}" var="group">
                                 <option value="${group.id}">${group.name}</option>
@@ -23,9 +23,5 @@
                     <input type="submit" class="btn btn-primary" value="Add">
             </form>
         </div>
-
-        <script>
-            $('.selectpicker').selectpicker();
-        </script>
     </body>
 </html>

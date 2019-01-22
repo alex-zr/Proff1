@@ -22,6 +22,8 @@
         <module>proff1_examples_spring</module>
         <module>Viktor_Husakivskyi_spring</module>
         <module>Andriy_Fedunetc_spring</module>
+        <module>brodovsky_noweb</module>
+        <module>brodovsky_yaroslav_spring</module>
 
     </modules>
     <dependencies>
