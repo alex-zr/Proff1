@@ -23,7 +23,15 @@ public class MyController {
     private ContactService contactService;
 
     @RequestMapping("/")
-    public String index(Model model, @RequestParam(required = false, defaultValue = "0") Integer page) {
+    public String index(){
+
+
+        return "index";
+    }
+
+
+    @RequestMapping("/contactPage")
+    public String contactPage(Model model, @RequestParam(required = false, defaultValue = "0") Integer page) {
         if (page < 0) page = 0;
 
         List<Contact> contacts = contactService
@@ -43,9 +51,9 @@ public class MyController {
     }
 
 /****/
-    @RequestMapping(value="/contact_change_page", method = {RequestMethod.POST, RequestMethod.POST})
+    @RequestMapping(value="/contact_change_page", method = {RequestMethod.GET, RequestMethod.POST})
     public String change(@RequestParam(value = "toDelete[]", required = false) long[] toChange, Model model) {
-        if (toChange!=null&&toChange.length<2) {
+        if (toChange!=null && toChange.length<2 && toChange.length>0) {
             Contact contact = contactService.findContactById(toChange[0]);
             model.addAttribute("id",contact.getId());
             model.addAttribute("name", contact.getName());
@@ -55,14 +63,20 @@ public class MyController {
 
         return "contact_change_page";
         }
-        return "contact_change_page";
+        return "redirect:/";
     }
 
     @RequestMapping("/contact/change")
-    public String change(){
-
-
-
+    public String change(@RequestParam String name,
+                              @RequestParam String surname,
+                              @RequestParam String phone,
+                              @RequestParam String email,
+                              @RequestParam long id){
+        Contact contact = contactService.findContactById(id);
+        contact.setEmail(email);
+        contact.setName(name);
+        contact.setSurname(surname);
+        contact.setPhone(phone);
         return "redirect:/";
     }
 /****/
