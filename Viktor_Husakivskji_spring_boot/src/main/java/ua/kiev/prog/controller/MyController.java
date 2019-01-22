@@ -24,11 +24,21 @@ public class MyController {
 
     @RequestMapping("/")
     public String index(){
-
-
         return "index";
     }
 
+    @RequestMapping("/registration")
+    public String registration(){
+
+
+        return
+    }
+
+
+    @RequestMapping("/login")
+    public String login(){
+        return "contactPage";
+    }
 
     @RequestMapping("/contactPage")
     public String contactPage(Model model, @RequestParam(required = false, defaultValue = "0") Integer page) {
