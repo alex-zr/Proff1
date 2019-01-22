@@ -25,7 +25,7 @@ public class MyController {
     @Autowired
     private ContactService contactService;
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     public String index(Model model, @RequestParam(required = false, defaultValue = "0") Integer page) {
         if (page < 0) page = 0;
 
