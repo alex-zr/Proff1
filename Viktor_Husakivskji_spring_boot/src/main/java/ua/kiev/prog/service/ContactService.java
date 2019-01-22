@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ua.kiev.prog.dao.ContactRepository;
 import ua.kiev.prog.dao.GroupRepository;
+import ua.kiev.prog.dao.UserRepository;
 import ua.kiev.prog.domain.Contact;
 import ua.kiev.prog.domain.Group;
 
@@ -18,6 +19,7 @@ public class ContactService {
     private ContactRepository contactRepository;
     @Autowired
     private GroupRepository groupRepository;
+
 
     @Transactional
     public void addContact(Contact contact) {
@@ -74,4 +76,6 @@ public class ContactService {
     public Contact findContactById(long id){
         return contactRepository.getOne(id);
     }
+
+
 }

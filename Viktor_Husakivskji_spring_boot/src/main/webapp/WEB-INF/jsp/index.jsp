@@ -13,7 +13,7 @@
     <table>
         <tr>
             <td>
-                <h3><img height="50" width="55" src="<c:url value="/static/logo.png"/>"/></h3>
+                <h3><img height="100" width="110" src="<c:url value="/static/logo.png"/>"/></h3>
             </td>
         </tr>
         <tr>

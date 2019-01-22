@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Registrate yourself!</h1>
-<form action="/registration" method="post">
+<form action="/registered" method="post">
     <input type="text" name="login" value="bill"/><br/>
     <input type="text" name="password" value="gates"/><br/>
     <input type="submit" value="Registrate"/>
