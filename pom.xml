@@ -24,6 +24,7 @@
         <module>Andriy_Fedunetc_spring</module>
         <module>brodovsky_noweb</module>
         <module>brodovsky_yaroslav_spring</module>
+        <module>igor_dianin_spring</module>
 
     </modules>
     <dependencies>
