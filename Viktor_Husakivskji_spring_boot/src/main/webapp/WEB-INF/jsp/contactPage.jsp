@@ -101,7 +101,7 @@
                     data['toDelete[]'].push($(this).val());
                 });
                 $.post("/contact_change_page", data, function(data, status) {
-                  // window.location.href = '/contact_change_page';
+                    window.location.href = '/contact_change_page';
                 });
             });
 

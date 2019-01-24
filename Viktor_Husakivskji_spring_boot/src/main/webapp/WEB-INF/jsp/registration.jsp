@@ -4,11 +4,15 @@
     <title>Registration</title>
 </head>
 <body>
-<h1>Registrate yourself!</h1>
-<form action="/registered" method="post">
-    <input type="text" name="login" value="bill"/><br/>
-    <input type="text" name="password" value="gates"/><br/>
-    <input type="submit" value="Registrate"/>
-</form>
+<div align="center">
+    <h1 align="center">Registrate yourself!</h1>
+    <br>
+    <form action="/registered" method="post">
+        <input type="text" name="login" value="bill"/><br/>
+        <input type="text" name="password" value="gates"/><br/>
+        <br>
+        <input type="submit" value="Registrate"/>
+    </form>
+</div>
 </body>
 </html>

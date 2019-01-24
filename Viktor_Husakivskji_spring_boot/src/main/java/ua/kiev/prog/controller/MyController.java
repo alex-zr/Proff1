@@ -22,8 +22,27 @@ public class MyController {
     @Autowired
     private ContactService contactService;
 /****/
-    @RequestMapping("/")
+/**  Mistakes checking  **/
+    @RequestMapping("/error_wrong_login_or_password")
+    public String errorMessage1(){
+        return "error_wrong_login_or_password";
+    }
+
+    @RequestMapping("/error_passwords_not_similar")
+    public String errorMessage2(){
+        return "error_passwords_not_similar";
+    }
+
+    @RequestMapping("/error_wrong_user_already_exist")
+    public String errorMessage3(){
+        return "error_wrong_user_already_exist";
+    }
+/****/
+
+
+    @RequestMapping({"/", "/index"})
     public String index(){
+
         return "index";
     }
 
@@ -34,14 +53,16 @@ public class MyController {
 
     @RequestMapping("/registered")
     public String reg(){
-
-
         return "redirect:/contactPage";
     }
 
 
     @RequestMapping("/login")
     public String login(){
+
+
+
+
         return "redirect:/contactPage";
     }
 /****/
