@@ -118,7 +118,7 @@ public class MyController {
         Contact contact = new Contact(group, name, surname, phone, email);
         contactService.addContact(contact);
 
-        return "redirect:/";
+        return "index";
     }
 
     @RequestMapping(value = "/contact/edit", method = RequestMethod.POST)
@@ -137,13 +137,13 @@ public class MyController {
         contact.setPhone(phone);
         contact.setGroup(contactGroup);
 
-        return "redirect:/";
+        return "index";
     }
 
     @RequestMapping(value="/group/add", method = RequestMethod.POST)
     public String groupAdd(@RequestParam String name) {
         contactService.addGroup(new Group(name));
-        return "redirect:/";
+        return "index";
     }
 
     private long getPageCount() {
