@@ -1,4 +1,4 @@
-package ua.kiev.prog.controller;
+package ua.kiev.prog.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -25,9 +25,11 @@ public class MyController {
     @Autowired
     private ContactService contactService;
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public String index(Model model, @RequestParam(required = false, defaultValue = "0") Integer page) {
-        if (page < 0) page = 0;
+        if (page < 0) {
+            page = 0;
+        }
 
         List<Contact> contacts = contactService
                 .findAll(new PageRequest(page, ITEMS_PER_PAGE, Sort.Direction.DESC, "id"));
@@ -45,22 +47,6 @@ public class MyController {
         return "contact_add_page";
     }
 
-    @RequestMapping(value = "/contact_edit_page", method = RequestMethod.POST)
-    public String contactEditPage(Model model,
-                                  @RequestParam(value = "toDelete[]", required = false) long[] contactId) {
-        if (contactId != null) {
-            Contact contact = contactService.findContact(contactId[0]);
-
-            model.addAttribute("name", contact.getName());
-            model.addAttribute("surname", contact.getSurname());
-            model.addAttribute("phone", contact.getPhone());
-            model.addAttribute("email", contact.getEmail());
-            model.addAttribute("group", contact.getGroup());
-        }
-
-        return "contact_edit_page";
-    }
-
     @RequestMapping("/group_add_page")
     public String groupAddPage() {
         return "group_add_page";
@@ -70,11 +56,8 @@ public class MyController {
     public String listGroup(
             @PathVariable(value = "id") long groupId,
             @RequestParam(required = false, defaultValue = "0") Integer page,
-            Model model)
-    {
-        Group group = (groupId != DEFAULT_GROUP_ID)
-                ? contactService.findGroup(groupId).orElse(new Group())
-                : null;
+            Model model) {
+        Group group = (groupId != DEFAULT_GROUP_ID) ? contactService.findGroup(groupId) : null;
         if (page < 0) page = 0;
 
         List<Contact> contacts = contactService
@@ -104,46 +87,24 @@ public class MyController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value="/contact/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/contact/add", method = RequestMethod.POST)
     public String contactAdd(@RequestParam(value = "group") long groupId,
                              @RequestParam String name,
                              @RequestParam String surname,
                              @RequestParam String phone,
-                             @RequestParam String email)
-    {
-        Group group = (groupId != DEFAULT_GROUP_ID)
-                ? contactService.findGroup(groupId).orElse(new Group())
-                : null;
+                             @RequestParam String email) {
+        Group group = (groupId != DEFAULT_GROUP_ID) ? contactService.findGroup(groupId) : null;
 
         Contact contact = new Contact(group, name, surname, phone, email);
         contactService.addContact(contact);
 
-        return "index";
+        return "redirect:/";
     }
 
-    @RequestMapping(value = "/contact/edit", method = RequestMethod.POST)
-    public String contactEdit(@RequestParam String name,
-                              @RequestParam String surname,
-                              @RequestParam String phone,
-                              @RequestParam String email,
-                              @RequestParam String group,
-                              @RequestParam(value = "data") long contactId) {
-        Contact contact = contactService.findContact(contactId);
-        Group contactGroup = contactService.findGroup(group);
-
-        contact.setName(name);
-        contact.setEmail(email);
-        contact.setSurname(surname);
-        contact.setPhone(phone);
-        contact.setGroup(contactGroup);
-
-        return "index";
-    }
-
-    @RequestMapping(value="/group/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/group/add", method = RequestMethod.POST)
     public String groupAdd(@RequestParam String name) {
         contactService.addGroup(new Group(name));
-        return "index";
+        return "redirect:/";
     }
 
     private long getPageCount() {
