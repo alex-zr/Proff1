@@ -1,4 +1,4 @@
-package ua.kiev.prog;
+package ua.kiev.prog.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import ua.kiev.prog.domain.Contact;
+import ua.kiev.prog.domain.Group;
+import ua.kiev.prog.service.ContactService;
 
 import java.util.List;
 

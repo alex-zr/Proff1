@@ -1,9 +1,11 @@
-package ua.kiev.prog;
+package ua.kiev.prog.dao;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import ua.kiev.prog.domain.Contact;
+import ua.kiev.prog.domain.Group;
 
 import java.util.List;
 

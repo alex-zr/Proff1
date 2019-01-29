@@ -4,14 +4,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import ua.kiev.prog.domain.Contact;
+import ua.kiev.prog.domain.Group;
 import ua.kiev.prog.security.CustomUser;
 import ua.kiev.prog.security.UserRole;
 import ua.kiev.prog.security.UserService;
+import ua.kiev.prog.service.ContactService;
 
 @SpringBootApplication
 public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(Application.class);
     }
 
     @Bean

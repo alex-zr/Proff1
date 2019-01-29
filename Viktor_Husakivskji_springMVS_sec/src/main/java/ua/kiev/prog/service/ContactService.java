@@ -1,9 +1,13 @@
-package ua.kiev.prog;
+package ua.kiev.prog.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ua.kiev.prog.domain.Contact;
+import ua.kiev.prog.domain.Group;
+import ua.kiev.prog.dao.ContactRepository;
+import ua.kiev.prog.dao.GroupRepository;
 
 import java.util.List;
 

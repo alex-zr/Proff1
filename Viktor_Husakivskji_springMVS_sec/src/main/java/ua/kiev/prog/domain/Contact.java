@@ -1,9 +1,7 @@
-package ua.kiev.prog;
+package ua.kiev.prog.domain;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.*;
 

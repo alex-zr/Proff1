@@ -1,4 +1,4 @@
-package ua.kiev.prog;
+package ua.kiev.prog.domain;
 
 import javax.persistence.*;
 import java.util.ArrayList;
