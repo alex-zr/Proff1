@@ -37,6 +37,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
+
     public LocalContainerEntityManagerFactoryBean entityManagerFactory
             (DataSource dataSource, JpaVendorAdapter jpaVendeorAdapter) {
         Properties jpaProp = new Properties();
