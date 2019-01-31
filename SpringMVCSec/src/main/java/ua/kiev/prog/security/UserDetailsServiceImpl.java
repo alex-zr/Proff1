@@ -20,8 +20,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         CustomUser customUser = userService.getUserByLogin(login);
-        if (customUser == null)
+        if (customUser == null) {
             throw new UsernameNotFoundException(login + " not found");
+        }
 
         Set<GrantedAuthority> roles = new HashSet<>();
         roles.add(new SimpleGrantedAuthority(customUser.getRole().toString()));

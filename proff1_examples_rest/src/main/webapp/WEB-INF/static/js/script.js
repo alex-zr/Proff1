@@ -1,3 +1,20 @@
+var variable = 10;
+
+
+console.log(variable);
+
+var f = function(vari) {
+    document.write('Hello');
+}(2);
+
+
+
+{
+  var variable = 11;
+  console.log(variable);
+}
+
+
 $(document).ready(init);
 
 function init() {
