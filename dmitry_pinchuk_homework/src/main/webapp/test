@@ -1,0 +1,22 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Your first form</title>
+</head>
+<body>
+
+<% if (request.getAttribute("errors") != null) { %>
+${errors}
+<% } %>
+
+<form action="/dmitry_pinchuk_homework_war_exploded/form" method="POST">
+    <label>Your name:</label><input type="text" name="name" placeholder="Input your name"><br>
+    <label>Your surname:</label><input type="text" name="surname" placeholder="Input your surname"><br>
+    <label>Your age:</label><input type="text" name="age" placeholder="Input your age"><br>
+    <label>Your sex:</label><input type="radio" value="male" name="sex">Man | <input type="radio" value="female" name="sex">Woman<br>
+    <label>What programming language do you prefer?:</label><input type="radio" value="javascript" name="language">Javascript |
+    <input type="radio" value="java" name="language">Java | <input type="radio" value="python" name="language">Python<br>
+    <input type="submit" name="submit" value="Send">
+</form>
+</body>
+</html>

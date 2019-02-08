@@ -25,6 +25,7 @@
         <module>brodovsky_noweb</module>
         <module>brodovsky_yaroslav_spring</module>
         <module>igor_dianin_spring</module>
+        <module>dmitry_pinchuk_homework</module>
 
     </modules>
     <dependencies>

@@ -1,14 +1,9 @@
-package ua.kiev.prog.jdbc.statement;
+package exampleDb;
 
 import java.sql.*;
 import java.util.Random;
 import java.util.Scanner;
 
-/*
-    mysql -u USERNAME -p
-    show databases;
-    use DBNAME;
- */
 public class Main {
     static final String DB_CONNECTION = "jdbc:mysql://localhost:3306/mydb";
     static final String DB_USER = "root";
@@ -149,7 +144,6 @@ public class Main {
     }
 
     private static void viewClients() throws SQLException {
-        String se = "Petya";
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM Clients");
         try {
             // table of data representing a database result set,
@@ -158,21 +152,13 @@ public class Main {
                 // can be used to get information about the types and properties of the columns in a ResultSet object
                 ResultSetMetaData md = rs.getMetaData();
 
-                for (int i = 1; i <= md.getColumnCount(); i++) {
+                for (int i = 1; i <= md.getColumnCount(); i++)
                     System.out.print(md.getColumnName(i) + "\t\t");
-                }
                 System.out.println();
 
                 while (rs.next()) {
                     for (int i = 1; i <= md.getColumnCount(); i++) {
-                        String name = rs.getString("name");
-                        if(se.equals(name)){
-                            System.out.print(rs.getString(i) + "\t\t");
-
-                        }else{
-                            System.out.println("sorry");
-                            break;
-                        }
+                        System.out.print(rs.getString(i) + "\t\t");
                     }
                     System.out.println();
                 }
