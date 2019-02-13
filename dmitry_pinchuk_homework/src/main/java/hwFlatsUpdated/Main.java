@@ -1,6 +1,7 @@
-package hwFlats;
+package hwFlatsUpdated;
 
-import java.sql.*;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {

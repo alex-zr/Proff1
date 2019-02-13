@@ -1,4 +1,4 @@
-package hwFlats;
+package hwFlatsUpdated;
 
 import java.sql.*;
 import java.util.Scanner;
