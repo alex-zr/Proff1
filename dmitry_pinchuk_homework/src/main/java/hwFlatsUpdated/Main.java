@@ -17,9 +17,9 @@ public class Main {
             try {
                 func.conn = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
                 func.initDb();
-                func.Svyatoshin();
-                func.Shevchenko();
-                func.Pechersk();
+                func.svyatoshin();
+                func.shevchenko();
+                func.pechersk();
                 func.menu();
 
 

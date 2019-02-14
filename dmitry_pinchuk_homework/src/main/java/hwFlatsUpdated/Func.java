@@ -20,7 +20,7 @@ public class Func {
     }
 
 
-        public static void Pechersk()throws SQLException{
+        public static void pechersk()throws SQLException{
             try (PreparedStatement prepare = conn.prepareStatement("insert into flats (district,address,square,rooms,price) values(?,?,?,?,?)")) {
                 conn.setAutoCommit(false);
                 String r = "Pechersk";
@@ -40,7 +40,7 @@ public class Func {
                 conn.rollback();
             }
         }
-        public static void Svyatoshin() throws SQLException{
+        public static void svyatoshin() throws SQLException{
             try (PreparedStatement prepare = conn.prepareStatement("insert into flats (district,address,square,rooms,price) values(?,?,?,?,?)")) {
                 conn.setAutoCommit(false);
                 String svyat = "Svyatoshin";
@@ -61,7 +61,7 @@ public class Func {
             }
         }
 
-        public static void Shevchenko() throws SQLException{
+        public static void shevchenko() throws SQLException{
             try (PreparedStatement prepare = conn.prepareStatement("insert into flats (district,address,square,rooms,price) values(?,?,?,?,?)")) {
                 conn.setAutoCommit(false);
                 String sheva = "Shevchenko";
