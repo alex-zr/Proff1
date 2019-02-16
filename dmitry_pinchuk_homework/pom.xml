@@ -14,7 +14,7 @@
 
     <name>dmitry_pinchuk_homework Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <url>http://maven.apache.org</url>
     <servlet>
         <servlet-name>GetList</servlet-name>
         <servlet-class>chat.server.GetListServlet</servlet-class>
@@ -47,11 +47,12 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.35</version>
         </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.3.9.Final</version>
         </dependency>
 
         <dependency>
