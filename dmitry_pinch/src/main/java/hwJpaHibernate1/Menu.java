@@ -17,12 +17,19 @@ public class Menu {
 
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private long id;
 
-    @Column(nullable = false)
+    @Column(name = "dish",nullable = false)
     private String dish;
+
+    @Column(name = "price",nullable = false)
     private double price;
+
+    @Column(name = "weight",nullable = false)
     private double weight;
+
+    @Column(name = "discount",nullable = false)
     private boolean discount;
 
     public Menu() {
