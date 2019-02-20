@@ -10,8 +10,7 @@ import javax.persistence.*;
         @NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m"),
         @NamedQuery(name = "Menu.discount", query = "SELECT m FROM Menu m WHERE m.discount = :discount"),
         @NamedQuery(name = "Menu.weight", query = "SELECT m FROM Menu m WHERE m.weight <= :weight"),
-        @NamedQuery(name = "Menu.fromTo",query = "SELECT m FROM Menu m WHERE m.price>:fr AND m.price<:to")
-
+        @NamedQuery(name = "Menu.fromTo",query = "SELECT m FROM Menu m WHERE m.price >= :fr AND m.price <= :to")
 })
 public class Menu {
 

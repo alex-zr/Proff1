@@ -12,8 +12,8 @@ public class Main {
     public static void main(String[] args) {
         try {
             try {
-                 emf = Persistence.createEntityManagerFactory("Jpaw1");
-                 em = emf.createEntityManager();
+                emf = Persistence.createEntityManagerFactory("Jpaw1");
+                em = emf.createEntityManager();
                 Scanner sc = new Scanner(System.in);
                 Methods methods = new Methods();
                 methods.initMenu();
