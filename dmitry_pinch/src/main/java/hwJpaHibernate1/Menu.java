@@ -3,14 +3,13 @@ package hwJpaHibernate1;
 import javax.persistence.*;
 
 
-
 @Entity
 @Table(name = "MenuRest")
 @NamedQueries({
         @NamedQuery(name = "Menu.findAll", query = "SELECT m FROM Menu m"),
         @NamedQuery(name = "Menu.discount", query = "SELECT m FROM Menu m WHERE m.discount = :discount"),
         @NamedQuery(name = "Menu.weight", query = "SELECT m FROM Menu m WHERE m.weight <= :weight"),
-        @NamedQuery(name = "Menu.fromTo",query = "SELECT m FROM Menu m WHERE m.price >= :fr AND m.price <= :to")
+        @NamedQuery(name = "Menu.fromTo", query = "SELECT m FROM Menu m WHERE m.price >= :fr AND m.price <= :to")
 })
 public class Menu {
 
@@ -19,16 +18,16 @@ public class Menu {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "dish",nullable = false)
+    @Column(name = "dish", nullable = false)
     private String dish;
 
-    @Column(name = "price",nullable = false)
+    @Column(name = "price", nullable = false)
     private double price;
 
-    @Column(name = "weight",nullable = false)
+    @Column(name = "weight", nullable = false)
     private double weight;
 
-    @Column(name = "discount",nullable = false)
+    @Column(name = "discount", nullable = false)
     private boolean discount;
 
     public Menu() {

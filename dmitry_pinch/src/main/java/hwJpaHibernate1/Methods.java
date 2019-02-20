@@ -71,12 +71,12 @@ public class Methods {
         double fr = Double.parseDouble(fromS);
         double to = Double.parseDouble(toS);
 
+
         em.getTransaction().begin();
         try {
             query = em.createNamedQuery("Menu.fromTo", Menu.class);
             query.setParameter("fr", fr);
             query.setParameter("to", to);
-
 
             List<Menu> menuL = query.getResultList();
 

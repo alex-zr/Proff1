@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Main {
     public static EntityManagerFactory emf;
     public static EntityManager em;
+
     public static void main(String[] args) {
         try {
             try {
@@ -19,11 +20,11 @@ public class Main {
                 methods.initMenu();
                 methods.menu();
 
-            }finally {
+            } finally {
                 em.close();
                 emf.close();
             }
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
             return;
         }
