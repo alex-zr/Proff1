@@ -9,21 +9,22 @@ import java.util.Scanner;
 public class Main {
     public static EntityManagerFactory emf;
     public static EntityManager em;
+
     public static void main(String[] args) {
         try {
             try {
-                 emf = Persistence.createEntityManagerFactory("Jpaw1");
-                 em = emf.createEntityManager();
+                emf = Persistence.createEntityManagerFactory("Jpaw1");
+                em = emf.createEntityManager();
                 Scanner sc = new Scanner(System.in);
                 Methods methods = new Methods();
                 methods.initMenu();
                 methods.menu();
 
-            }finally {
+            } finally {
                 em.close();
                 emf.close();
             }
-        }catch (SQLException ex){
+        } catch (SQLException ex) {
             ex.printStackTrace();
             return;
         }

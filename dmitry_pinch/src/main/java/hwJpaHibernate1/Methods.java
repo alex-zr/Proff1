@@ -71,12 +71,14 @@ public class Methods {
         double fr = Double.parseDouble(fromS);
         double to = Double.parseDouble(toS);
 
+
         em.getTransaction().begin();
         try {
             query = em.createNamedQuery("Menu.fromTo", Menu.class);
             query.setParameter("fr", fr);
             query.setParameter("to", to);
-            List<Menu> menuL = (List<Menu>) query.getResultList();
+
+            List<Menu> menuL = query.getResultList();
 
             for (Menu menus : menuL) {
                 System.out.println(menus);
@@ -113,11 +115,11 @@ public class Methods {
             System.out.println("Your order equals or more than 1000 g. Please input less than 1000 g");
 
         } else if (gram > 1120) {
-            System.out.println("We don't have such a big dishes on our menu. Please choose your prefered weight again.");
+            System.out.println("We don't have such a big dishes in our menu. Please choose your prefered weight again.");
             System.out.println();
             menu();
         } else if (gram < 300) {
-            System.out.println("We don't have such a small dishes on our menu. Please choose your prefered weight again.");
+            System.out.println("We don't have such a small dishes in our menu. Please choose your prefered weight again.");
             System.out.println();
             menu();
 
